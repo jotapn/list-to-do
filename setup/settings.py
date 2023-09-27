@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'todo',
 ]
 
 MIDDLEWARE = [
@@ -78,11 +80,11 @@ WSGI_APPLICATION = 'setup.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('NAME_DB_POSTGRES'),
-        'USER': os.getenv('USER_POSTGRES'),
+        'NAME': os.getenv('NAME_DB_POSTGRES', 'postgres'),
+        'USER': os.getenv('USER_POSTGRES', 'postgres'),
         'PASSWORD': os.getenv('PASSWORD_POSTGRES'),
         'HOST': 'localhost',  # ou o host do seu banco de dados PostgreSQL
-        'PORT': '',            # deixe vazio para usar a porta padrão (5432)
+        'PORT': '5432',       # deixe vazio para usar a porta padrão (5432)
     }
 }
 
